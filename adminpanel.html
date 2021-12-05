@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="stylesheetforpanles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="logo_login.png"/>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="head" title="CélineStore">
+                <img src="logo.png" alt=""> Céline<span class="halfHead">Store<sup style="font-size:40%; color: white;">&reg</sup>
+                </span>
+            </h1>
+            <button class="logInBtnNavBar" title="Đăng nhập" onclick="showSide();" class="textAcc">
+                <i class="fa fa-bars" aria-hidden="true" ></i> DANH MỤC
+            </button>
+            <button class="FAacc"><i class="fa fa-bars" onclick="showSide();" aria-hidden="true" ></i></button>
+            </div>
+            <div id="loginArea" class="area">
+                    <a href="Javascript:void(0)" title="Close" class="closebtn" onclick="closeSide()">&times;</a>
+                   <div class="dp"><img src="logo.png" title="Admin Dp" height="100px;" width="100px;"></div>
+                    <p id="username" style="color:rgb(89, 156, 255);">ADMIN</p>
+                    <hr />
+                    <a href="#dashBoard"><button class="dashBtn"onclick="location = 'dashboard.html'" title="Go to Dashboard"><i class="fa fa-dashboard" style="font-size:120%;"></i> DASHBOARD</button></a>
+                    <table class="navTable">
+                        <tr class="tr">
+                            <th class="th"><i class="fa fa-product-hunt" style="color:aliceblue"></i> SẢN PHẨM</th>
+                        </tr>
+                        <tr class="tr">
+                            <td class="td"><a href="#manStyle" class="link" onclick="closeSide()">THỜI TRANG NAM</a></td>     
+                        </tr>
+                        <tr class="tr">
+                            <td class="td"><a href="#womenStyle" class="link" onclick="closeSide()">THỜI TRANG NỮ</a></td>     
+                        </tr>
+                        <tr class="tr">
+                            <td class="td"><a href="#accessory" class="link" onclick="closeSide()">PHỤ KIỆN</a></td>    
+                        </tr>
+                    </table>
+                   <p id="container"></p>
+                    <button onclick="logout();" class="logoutBtn"><i class="fa fa-sign-out"></i> ĐĂNG XUẤT</button>
+                </div>
+                    <div class="modelBox" id="modeForAdd">
+                        <div class="modelContent">
+                            <div class="headerOfSaleModel">
+                            <h1 class="modeH1" id="category"></h1>
+                            </div>
+                            <div class="saleInfoForm">
+                            <form action="JavaScript:void(0)" onsubmit="insertData(document.getElementById('category').innerText)">
+                                <p id="errorInAdd">Lưu ý: Vui lòng điền đầy đủ thông tin bên dưới.</p>
+                                <input type="text" class="inputOfedit" id="addName" placeholder="Tên sản phẩm" required="required">
+                                <input type="number" class="inputOfedit" id="addPrice" placeholder="Giá" required="required">
+                                <input type="text" class="inputOfedit" id="addColors" placeholder="Màu sắc" required="required">
+                                <input type="text" class="inputOfedit" id="addStock" placeholder="Sẵn kho" required="required">
+                                <input type="text" class="inputOfedit" id="addSize" placeholder="Sizes" required="required">
+                                <input type="submit" value="+ THÊM" class="submitBtnOfSale">
+                            </form>
+                            </div>
+                            <div class="footerOfMode" onclick="document.getElementById('modeForAdd').style.display = 'none';">
+                                    <span><i class="fa fa-close"></i> HỦY </span>
+                            </div>
+                        </div>
+                    </div>
+                <div class="filter"><input type="text" id="userInput" class="input" placeholder="Tìm kiếm sản phẩm..." onfocus="this.className += ' shadow'" onblur="this.className='input'"><button class="searchBtn" onclick="filter();"><i class="fa fa-search"></i></button></div>
+                <hr / style="border: 1.5px solid rgb(84, 199, 84)">
+                <div id="displayc"></div>
+                <div id="displaye"></div>
+                <p style="text-align:center;" id="homeButton"><button class="homeBtn" onclick="home();"><i class="fa fa-home"></i> Home</button></p>
+                <div id="content">
+                <div id="products">
+                <div id="manStyle">
+                    <h1 class="proHead"><i class="fa fa-angle-double-down" style="color:aliceblue;"></i> THỜI TRANG NAM</h1>
+                    <div style="text-align:center;" class="fContainer1">
+                        <div class="f1" id="aothunnam1">
+                            <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('f1');" onmouseout="changeag('f1','images/ao3.jpg');" id="f1">
+                            <img src="images/ao3.jpg" width="200px" height="160px;"> 
+                                <div class="b" onclick="details('aothunnam1','images/ao3.jpg')">+</div>
+                        </div>
+                            <p class="proInfoN" onclick="details('aothunnam1','images/ao3.jpg')">ÁO THUN NAM</p>
+                            <p class="proInfo">99.000đ</p>
+                            <button class="adminBtnsEdit" onclick="details('aothunnam1','images/ao3.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                        <button class="adminBtnsDelete" onclick="remove('aothunnam1');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                    </div>
+                    <div class="f2" id="aothunnam2">
+                        <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('f2');" onmouseout="changeag('f2','images/ao6.jpg');" id="f2">
+                        <img src="images/ao6.jpg" width="200px" height="160px;">
+                        <div class="b" onclick="details('aothunnam2','images/ao6.jpg')">+</div>
+                        </div>
+                        <p class="proInfoN" onclick="details('aothunnam2','images/ao6.jpg')">COMBO REE NAM</p>
+                        <p class="proInfo">499.000đ</p>
+                        <button class="adminBtnsEdit" onclick="details('aothunnam2','images/ao6.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                        <button class="adminBtnsDelete" onclick="remove('aothunnam2');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                    </div>
+                    <div class="f3" id="aothunnam3">
+                        <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('f3');" onmouseout="changeag('f3','images/ao8.jpg');" id="f3">
+                        <img src="images/ao8.jpg" width="200px" height="160px;">
+                        <div class="b" onclick="details('aothunnam3','images/ao8.jpg')">+</div>
+                        </div>
+                        <p class="proInfoN" onclick="details('aothunnam3','images/ao8.jpg')">ÁO THUN ELEKTRON</p>
+                        <p class="proInfo">199.000đ</p>
+                        <button class="adminBtnsEdit" onclick="details('aothunnam3','images/ao8.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                        <button class="adminBtnsDelete" onclick="remove('aothunnam3');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                    </div>
+                    </div>
+                    <div style="text-align:center;" class="fContainer2">
+                        <div class="f4" id="quannam1">
+                            <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('f4');" onmouseout="changeag('f4','images/doubleV.jpg');" id="f4">
+                            <img src="images/doubleV.jpg" width="200px" height="160px;">
+                            <div class="b" onclick="details('quannam1','images/doubleV.jpg')">+</div>
+                            </div>
+                            <p class="proInfoN" onclick="details('quannam1','images/doubleV.jpg')">QUẦN SHORT NAM</p>
+                            <p class="proInfo">125.000đ</p>
+                            <button class="adminBtnsEdit" onclick="details('quannam1','images/doubleV.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                        <button class="adminBtnsDelete" onclick="remove('quannam1');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                    </div>
+                    <div class="f5" id="quannam2">
+                        <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('f5');" onmouseout="changeag('f5','images/quan5.jpg');" id="f5">
+                    <img src="images/quan5.jpg" width="200px" height="160px;">
+                    <div class="b" onclick="details('quannam2','images/quan5.jpg')">+</div>
+                    </div>
+                    <p class="proInfoN" onclick="details('quannam2','images/quan5.jpg')">QUẦN JOGGER DÙ</p>
+                    <p class="proInfo">129.000đ</p>
+                    <button class="adminBtnsEdit" onclick="details('quannam2','images/quan5.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                        <button class="adminBtnsDelete" onclick="remove('quannam2');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                    </div>
+                    <div class="f6" id="quannam3">
+                        <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('f6');" onmouseout="changeag('f6','images/quan7.jpg');" id="f6">
+                    <img src="images/quan7.jpg" width="200px" height="160px;">
+                    <div class="b" onclick="details('quannam3','images/quan7.jpg')">+</div>
+                    </div>
+                    <p class="proInfoN" onclick="details('quannam3','images/quan7.jpg')">QUẦN THUN DÀI NAM</p>
+                    <p class="proInfo">150.000đ</p>
+                    <button class="adminBtnsEdit" onclick="details('quannam3','images/quan7.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                        <button class="adminBtnsDelete" onclick="remove('quannam3');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                    </div>
+                    <div id="newAddedOfFootwears">
+
+                    </div>
+                    <button class="adminBtnsAdd" onclick="add('manStyle','newAddedOfFootwears');" title="Thêm Sản Phẩm" id="footwearsAdd"><i class="fa fa-plus"></i> THÊM SẢN PHẨM</button>
+                    </div>
+                </div>
+
+                <div id="womenStyle">
+                        <h1 class="proHead"><i class="fa fa-angle-double-down" style="color:aliceblue;"></i> THỜI TRANG NỮ</h1>
+                        <div style="text-align:center;" class="fContainer1">
+                            <div class="f1" id="aothunnu1">
+                                <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('c1');" onmouseout="changeag('c1','images/ao2.jpg');" id="c1">
+                                <img src="images/ao2.jpg" width="200px" height="160px;">
+                                <div class="b" onclick="details('aothunnu1','images/ao2.jpg')">+</div>
+                                </div>
+                                <p class="proInfoN" onclick="details('aothunnu1','images/ao2.jpg')">ÁO THUN TEDDY XÁM</p>
+                                <p class="proInfo">159.000đ</p>
+                                <button class="adminBtnsEdit" onclick="details('aothunnu1','images/ao2.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                            <button class="adminBtnsDelete" onclick="remove('aothunnu1');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                        </div>
+                        <div class="f2" id="aothunnu2">
+                            <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('c2');" onmouseout="changeag('c2','images/ao5.jpg');" id="c2">
+                        <img src="images/ao5.jpg" width="200px" height="160px;">
+                        <div class="b" onclick="details('aothunnu2','images/ao5.jpg')">+</div>
+                        </div>
+                        <p class="proInfoN" onclick="details('aothunnu2','images/ao5.jpg')">ÁO THUN LOANG NOW</p>
+                        <p class="proInfo">90.000đ</p>
+                        <button class="adminBtnsEdit" onclick="details('aothunnu2','images/ao5.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                            <button class="adminBtnsDelete" onclick="remove('aothunnu2');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                        </div>
+                        <div class="f3" id="aothunnu3">
+                            <div class="imgCover"alt="Please Wait Loading..."  onmouseover="change('c5');" onmouseout="changeag('c5','images/leventsYellow01.jpg');" id="c5">
+                        <img src="images/leventsYellow01.jpg" width="200px" height="160px;">
+                        <div class="b" onclick="details('aothunnu3','images/leventsYellow01.jpg')">+</div>
+                        </div>
+                        <p class="proInfoN" onclick="details('aothunnu3','images/leventsYellow01.jpg')">ÁO THUN LEVENTS</p>
+                        <p class="proInfo">75.000đ</p>
+                        <button class="adminBtnsEdit" onclick="details('aothunnu3','images/leventsYellow01.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                            <button class="adminBtnsDelete" onclick="remove('aothunnu3');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                        </div>
+                        </div>
+                        <div style="text-align:center;" class="fContainer2">
+                            <div class="f4" id="quannu1">
+                                <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('c4');" onmouseout="changeag('c4','images/baggyDenRach01.jpg');" id="c4">
+                            <img src="images/baggyDenRach01.jpg" width="200px" height="160px;">
+                            <div class="b" onclick="details('quannu1','images/baggyDenRach01.jpg')">+</div>
+                            </div>
+                            <p class="proInfoN" onclick="details('quannu1','  images/baggyDenRach01.jpg')">QUẦN BAGGY RÁCH</p>
+                            <p class="proInfo">300.000đ</p>
+                            <button class="adminBtnsEdit" onclick="details('quannu1','images/baggyDenRach01.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                            <button class="adminBtnsDelete" onclick="remove('quannu1');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                        </div>
+                        <div class="f5" id="quannu2">
+                            <div class="imgCover" alt="Please Wait Loading..."  onmouseover="change('c3');" onmouseout="changeag('c3','images/cartoonShort.jpg');" id="c3">
+                        <img src="images/cartoonShort.jpg" width="200px" height="160px;">
+                        <div class="b" onclick="details('quannu2','images/cartoonShort.jpg')">+</div>
+                        </div>
+                        <p class="proInfoN" onclick="details('quannu2','images/cartoonShort.jpg')">QUẦN SHORT CARTOON</p>
+                        <p class="proInfo">50.000đ</p>
+                        <button class="adminBtnsEdit" onclick="details('quannu2','images/cartoonShort.jpg')" title="More" ><i class="fa fa-arrow-up"></i>THÊM</button>
+                            <button class="adminBtnsDelete" onclick="remove('quannu2');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                        </div>
+                        <div class="f6" id="quannu3">
+                            <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('c6');" onmouseout="changeag('c6','images/tobiPant.jpg');" id="c6">
+                        <img src="images/tobiPant.jpg" width="200px" height="160px;">
+                        <div class="b" onclick="details('quannu3','images/tobiPant.jpg')">+</div>
+                        </div>
+                        <p class="proInfoN" onclick="details('quannu3','images/tobiPant.jpg')">COMBO LEGGY NỮ</p>
+                        <p class="proInfo">499.000đ</p>
+                        <button class="adminBtnsEdit" onclick="details('quannu3','images/tobiPant.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                            <button class="adminBtnsDelete" onclick="remove('quannu3');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                        </div>
+                        <div id="newAddedOfClothes">
+
+                            </div>
+                        <button class="adminBtnsAdd" onclick="add('womenStyle','newAddedOfClothes');" title="ADD Product" id="clothesAdd"><i class="fa fa-plus"></i> THÊM SẢN PHẨM</button>
+                        </div>
+                    </div>
+
+                    <div id="accessory">
+                            <h1 class="proHead"><i class="fa fa-angle-double-down" style="color:aliceblue;"></i> PHỤ KIỆN</h1>
+                            <div style="text-align:center;" class="fContainer1">
+                                <div class="f1" id="phukien1">
+                                    <div class="imgCover" alt="Please Wait Loading..."  onmouseover="change('w1');" onmouseout="changeag('w1','images/bag13.jpg');" id="w1">
+                                    <img src="images/bag13.jpg" width="200px" height="160px;">
+                                    <div class="b" onclick="details('phukien1','images/bag13.jpg')">+</div>
+                                    </div>
+                                    <p class="proInfoN" onclick="details('phukien1','images/bag13.jpg')">TÚI TOTE LỚN</p>
+                                    <p class="proInfo">267.000đ</p>
+                                    <button class="adminBtnsEdit" onclick="details('phukien1','images/bag13.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                                <button class="adminBtnsDelete" onclick="remove('phukien1');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                            </div>
+                            <div class="f2" id="phukien2">
+                                <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('w2');" onmouseout="changeag('w2','images/balo6.jpg');" id="w2">
+                            <img src="images/balo6.jpg" width="200px" height="160px;">
+                            <div class="b" onclick="details('phukien2','images/balo6.jpg')">+</div>
+                            </div>
+                            <p class="proInfoN" onclick="details('phukien2','images/balo6.jpg')">BALO BAMA </p>
+                            <p class="proInfo">220.000đ</p>
+                            <button class="adminBtnsEdit" onclick="details('phukien2','images/balo6.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                                <button class="adminBtnsDelete" onclick="remove('phukien2');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                            </div>
+                            <div class="f3" id="phukien3">
+                                <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('w3');" onmouseout="changeag('w3','images/dongho2.jpg');" id="w3">
+                            <img src="images/dongho2.jpg" width="200px" height="160px;">
+                            <div class="b" onclick="details('phukien3','images/dongho2.jpg')">+</div>
+                            </div>
+                            <p class="proInfoN" onclick="details('phukien3','images/dongho2.jpg')">ĐỒNG HỒ PHA LÊ</p>
+                            <p class="proInfo">450.000đ</p>
+                            <button class="adminBtnsEdit" onclick="details('phukien3','images/dongho2.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                                <button class="adminBtnsDelete" onclick="remove('phukien3');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                            </div>
+                            </div>
+                            <div style="text-align:center;" class="fContainer2">
+                                <div class="f4" id="phukien4">
+                                    <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('w4');" onmouseout="changeag('w4','images/giay14.jpg');" id="w4">
+                                <img src="images/giay14.jpg" width="200px" height="160px;">
+                                <div class="b" onclick="details('phukien4','images/giay14.jpg')">+</div>
+                                </div>
+                                <p class="proInfoN" onclick="details('phukien4','images/giay14.jpg')">GIÀY SANDAL XỐP</p>
+                                <p class="proInfo">135.000đ</p>
+                                <button class="adminBtnsEdit" onclick="details('phukien4','images/giay14.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                                <button class="adminBtnsDelete" onclick="remove('phukien4');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                            </div>
+                            <div class="f5" id="phukien5">
+                                <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('w5');" onmouseout="changeag('w5','images/k9.jpg');" id="w5">
+                            <img src="images/k9.jpg" width="200px" height="160px;">
+                            <div class="b" onclick="details('phukien5','images/k9.jpg')">+</div>
+                            </div>
+                            <p class="proInfoN" onclick="details('phukien5','images/k9.jpg')">KẸP TÓC BƯỚM BẠC</p>
+                            <p class="proInfo">110.000đ</p>
+                            <button class="adminBtnsEdit" onclick="details('phukien5','images/k9.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                                <button class="adminBtnsDelete" onclick="remove('phukien5');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                            </div>
+                            <div class="f6" id="phukien6">
+                                <div class="imgCover" alt="Please Wait Loading..." onmouseover="change('w6');" onmouseout="changeag('w6','images/non7.jpg');" id="w6">
+                            <img src="images/non7.jpg" width="200px" height="160px;">
+                            <div class="b" onclick="details('phukien6','images/non7.jpg')">+</div>
+                            </div>
+                            <p class="proInfoN" onclick="details('phukien6','images/non7.jpg')">NÓN BUCKET JEANS</p>
+                            <p class="proInfo">290.000đ</p>
+                            <button class="adminBtnsEdit" onclick="details('phukien6','images/non7.jpg')" title="More" ><i class="fa fa-arrow-up"></i> THÊM</button>
+                                <button class="adminBtnsDelete" onclick="remove('phukien6');" title="Delete Product" ><i class="fa fa-trash"></i> XÓA</button>
+                            </div>
+                            <div id="newAddedOfWatches">
+
+                                </div>
+                            <button class="adminBtnsAdd" onclick="add('accessory','newAddedOfWatches');" title="ADD Product" id="watchesAdd"><i class="fa fa-plus"></i> THÊM SẢN PHẨM</button>
+                            </div>
+                        </div>
+                        </div>
+            </div>
+            <p id="topButton" style="text-align:center;"><a href="#top"><button class="topBtn" title="Top"><i class="fa fa-arrow-up"></i></button></a></p>
+            <div class="footer">
+                <p class="footerr">@COPYRIGHTS-2021-12. All Rights Reserved.</p><a href="#top">
+            </div>
+            </div>
+    <script src="app.js"></script>
+    <script src="sweetalert2.js"></script>
+</body>
+</html>
